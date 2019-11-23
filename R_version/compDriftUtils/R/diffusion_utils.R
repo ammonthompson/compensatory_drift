@@ -2,7 +2,7 @@
 #'
 #' See equations 5 and 6 in Thompson et al. 2016. Genetics
 #' @param sig2 is the diffusion rate parameters. Equation 4 Thompson et al. 2016.
-random_D <- function(sigmaD2 = 1, D0 = 0, time = 10^4, Dstar = 10, num_sample = 100){
+random_D <- function(sigmaD2 = 1, D0 = 0, time = 10^3, Dstar = 100, num_sample = 100){
   D_sample <- c()
   for(i in 1:num_sample){
     missed <- TRUE;

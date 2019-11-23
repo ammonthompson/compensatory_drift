@@ -4,7 +4,7 @@
 \alias{random_D}
 \title{Generate random variate from density function for D.}
 \usage{
-random_D(sigmaD2 = 1, D0 = 0, time = 10^4, Dstar = 10,
+random_D(sigmaD2 = 1, D0 = 0, time = 10^3, Dstar = 100,
   num_sample = 100)
 }
 \arguments{
