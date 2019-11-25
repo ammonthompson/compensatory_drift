@@ -4,4 +4,4 @@ Simulation on tree for ABC analysis
 Wright Fisher haploid population simulation (not on tree)
 
 Some Java simulations will only work with older Java SE.  I recommend using the R version located in the directory R_version.
-In R set working directory to R_version/ and install with install.packages("compDriftUtils", -type "source", -repos NULL).
+In R set working directory to R_version/ and install with install.packages("compDriftUtils", type = "source", repos = NULL).
