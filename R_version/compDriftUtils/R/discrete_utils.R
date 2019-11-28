@@ -2,7 +2,7 @@
 #'
 #' @param trace will plot out the simulations sampled every sample_rate mutations
 
-run_stochastic_sim <- function(p1_start = 5, p2_start = 5, theta = 10, sim_time = 10^4,
+run_stochastic_sim <- function(p1_start = 5, p2_start = 5, theta = 10, threshold = theta, sim_time = 10^4,
                              mu = 10^-2, N = 10^2, sigma_m = 1, omega = 2,
                              trace = FALSE, sample_rate = 10000, num_sample = 1 ){
   p1_p2 = c()
@@ -21,17 +21,33 @@ run_stochastic_sim <- function(p1_start = 5, p2_start = 5, theta = 10, sim_time 
 
       ## time of mutation if one or neither is absorbed (abs(p1 - p2) > theta)
       time <- time + rexp(1, rate = 4 * N * mu) #pop. mut. rate for 2 diploid loci; 4N
-      if(p1_0 - p2_0 > theta){
-        pp <- 1
-        p2_0 <- 0
-        p1_0 <- theta
+
+      if(p1_0 >= threshold | p1_0 <= (theta - threshold)){
+
+        if(p1_0 >= threshold){
+          p1_0 <- threshold
+          p2_0 <- theta - threshold
+        }else{
+          p1_0 <- theta - threshold
+          p2_0 <- threshold
+        }
         break
-      }else if(p1_0 - p2_0 < -theta){
-        pp <- 0
-        p1_0 <- 0
-        p2_0 <- theta
-        break
+
       }
+
+      if(p2_0 >= threshold | p2_0 <= (theta - threshold)){
+
+        if(p2_0 >= threshold){
+          p1_0 <- theta - threshold
+          p2_0 <- threshold
+        }else{
+          p1_0 <- threshold
+          p2_0 <- theta - threshold
+        }
+        break
+
+      }
+
 
       if(time > sim_time) break
 
