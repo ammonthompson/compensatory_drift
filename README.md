@@ -1,7 +1,7 @@
 # compensatory_drift
-Simulation programs written for Thompson et al. 2016. Genetics
-Simulation on tree for ABC analysis
-Wright Fisher haploid population simulation (not on tree)
+R utilities for simulating data under Compensatory Drift described in Thompson et al. 2016. Genetics ( https://doi.org/10.1534/genetics.115.178137 ).
 
-Some Java simulations will only work with older Java SE.  I recommend using the R version located in the directory R_version.
-In R set working directory to R_version/ and install with install.packages("compDriftUtils", type = "source", repos = NULL).
+To install, in R set working directory to R_version/ and install with install.packages("compDriftUtils", type = "source", repos = NULL).
+
+The original ABC and Wright Fisher population simulations written in Java are being updated to work with the current Java Runtime environment. If you would like the Java code, please contact the corresponding author at ammonthompsonATgmailDOTcom
+
